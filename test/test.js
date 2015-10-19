@@ -1,8 +1,6 @@
 assert = require('assert');
 rpp = require('../rpp-parse.js');
 
-console.log('blahasdf', rpp);
-
 describe('parseLine', function(){
 
   it('should parse a single word into an array with a single value', function(){
@@ -24,7 +22,13 @@ describe('parseLine', function(){
   });
 
   it('should ignore trailing space', function(){
-    var res = rpp.parseLine("WORD ok ", ['WORD', 'ok']);
+    assert.deepEqual(rpp.parseLine("WORD ok  "), ['WORD', 'ok']);
+    assert.deepEqual(rpp.parseLine("WORD 'ok'  "), ['WORD', "'ok'"]);
+  });
+
+  it('should ignore leading whitespace', ()=>{
+    assert.deepEqual(rpp.parseLine("  WORD ok"), ['WORD', 'ok']);
+    assert.deepEqual(rpp.parseLine('  "WORD" ok'), ['"WORD"', 'ok']);
   });
 
 });
@@ -35,7 +39,7 @@ t0 = "BAD START\n\
 >"
 
 t1 = "<RECORD_CFG\n\
-  ZXZhdxAA\n\
+  VALUE\n\
 >"
 
 describe('parseBlock', function(){
@@ -48,5 +52,10 @@ describe('parseBlock', function(){
     );
   });
 
-  
+  it('should handle a simple object', ()=>{
+    obj = rpp.parseBlock(t1);
+    console.log(obj);
+    assert.equal(typeof obj['RECORD_CFG'], 'object');
+    assert.ok('VALUE' in obj['RECORD_CFG']);
+  });
 });
