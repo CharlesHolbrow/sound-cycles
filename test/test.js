@@ -23,9 +23,30 @@ describe('parseLine', function(){
     assert.deepEqual(res, ['"ok"', 'blah', '`last`']);
   });
 
-  it('should fail ignore trailing space', function(){
+  it('should ignore trailing space', function(){
     var res = rpp.parseLine("WORD ok ", ['WORD', 'ok']);
   });
 
+});
 
+t0 = "BAD START\n\
+<RECORD_CFG\n\
+  ZXZhdxAA\n\
+>"
+
+t1 = "<RECORD_CFG\n\
+  ZXZhdxAA\n\
+>"
+
+describe('parseBlock', function(){
+
+  it('should reject any block that does not start with a "<" char', function(){
+    assert.throws(
+      function(){rpp.parseBlock(t0)}, 
+      Error,
+      'did not throw'
+    );
+  });
+
+  
 });

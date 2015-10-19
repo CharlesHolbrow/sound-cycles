@@ -19,6 +19,11 @@ rpp.parseLine = function(lineText){
   return array;
 };
 
+rpp.parseBlock = function(blockText){
+  if (blockText[0] !== '<') 
+    throw new Error('Text does not begin with "<"');
+};
+
 
 rpp.load = function(filename){
 
