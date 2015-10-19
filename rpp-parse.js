@@ -34,6 +34,7 @@ rpp.parseBlock = function(blockText){
 
   while (position < lines.length) {
     let parsedLine = rpp.parseLine(lines[position]);
+    console.log(parsedLine);
     if (parsedLine[0][0] === '<'){
       parsedLine[0] = parsedLine[0].slice(1);
       let newObject = {parent:target};

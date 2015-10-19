@@ -1,5 +1,7 @@
 assert = require('assert');
+fs = require('fs');
 rpp = require('../rpp-parse.js');
+
 
 describe('parseLine', function(){
 
@@ -42,6 +44,14 @@ t1 = "<RECORD_CFG\n\
   VALUE\n\
 >"
 
+t2 = '<REAPER_PROJECT 0.1 "5.04/OSX64" 1445270847\n\
+  RIPPLE 2\n\
+  okay 1 2 3\n\
+  then 3 4 5\n\
+  VALUE\n\
+>'
+
+
 describe('parseBlock', function(){
 
   it('should reject any block that does not start with a "<" char', function(){
@@ -53,9 +63,18 @@ describe('parseBlock', function(){
   });
 
   it('should handle a simple object', ()=>{
-    obj = rpp.parseBlock(t1);
+    var obj = rpp.parseBlock(t1);
     console.log(obj);
     assert.equal(typeof obj['RECORD_CFG'], 'object');
     assert.ok('VALUE' in obj['RECORD_CFG']);
   });
+
+  it('should handle another obj', ()=>{
+    var obj = rpp.parseBlock(t2);
+    assert.deepEqual(obj.REAPER_PROJECT.okay, [1, 2, 3]);
+    console.log('t2:', obj);
+  })
 });
+
+data = fs.readFileSync('./test/test.rpp', 'ascii');
+// parsed = rpp.parseBlock(data);
