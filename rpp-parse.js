@@ -1,31 +1,22 @@
 var rpp = {};
 module.exports = rpp;
-delimiterRegex = / (['`"])?/;
 
-rpp.parseLine = function(lineText, array){
-  array = array || [];
+spaceRegex = /^([^'`"][^ ]*)\s?/;
+delimiterRegex = /^((['`"])(?:.*?)(?:\2))\s?(.*)/;
+numberRegex = /^-?(\d+(.\d+)?)$/
 
-  var match = lineText.match(delimiterRegex);
+rpp.parseLine = function(lineText){
+  array = [];
 
-  if (!match){
-    // There are no more delimiters
-    // Add entire string to array
-    array.push(lineText);
-    return array;
+  while (lineText.length){
+    var match = lineText.match(delimiterRegex) || lineText.match(spaceRegex);
+    var part = match[1];
+    // part.length +1: (+1 is for the space)
+    var lineText = lineText.slice(part.length + 1, lineText.length);
+    array.push(numberRegex.test(part) ? parseFloat(part) : part);
   }
 
-  // position of the space
-  var delimiterPosition = match.index;
-  var delimiter = lineText[delimiterPosition];
-
-  if (delimiter == ' '){
-    var part = lineText.slice(0, delimiterPosition)
-    var rest = lineText.slice(delimiterPosition - lineText.length + 1);
-    array.push(part)
-
-    return rpp.parseLine(rest, array);
-  }
-
+  return array;
 };
 
 

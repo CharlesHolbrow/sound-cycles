@@ -19,8 +19,12 @@ describe('parseLine', function(){
   });
 
   it('should handle strings in quotes', function(){
-    var res = rpp.parseLine('WORD "ok"');
-    assert.equal(res[1], 'ok');
+    var res = rpp.parseLine('"ok" blah `last`');
+    assert.deepEqual(res, ['"ok"', 'blah', '`last`']);
+  });
+
+  it('should fail ignore trailing space', function(){
+    var res = rpp.parseLine("WORD ok ", ['WORD', 'ok']);
   });
 
 
