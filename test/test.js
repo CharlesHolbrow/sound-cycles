@@ -9,10 +9,19 @@ describe('parseLine', function(){
     assert.deepEqual(rpp.parseLine('WORD'), ['WORD']);
   });
 
-  it('should parse ints delimited by spaces', function(){
-    assert.deepEqual(rpp.parseLine('LINE 1 2 3'), ['LINE',1,2,3]);
+  it('should parse values delimited by spaces', function(){
+    assert.deepEqual(rpp.parseLine('LINE 1 2 3'), ['LINE',1,'2',3]);
   });
 
-});
+  it('could convert numbers to typeof number', function(){
+    var res = rpp.parseLine('LINE 1 2 3')
+    assert.equal(typeof res[1], 'number');
+  });
 
-assert.ok(rpp, 'import successful');
+  it('should handle strings in quotes', function(){
+    var res = rpp.parseLine('WORD "ok"');
+    assert.equal(res[1], 'ok');
+  });
+
+
+});
