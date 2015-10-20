@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/CharlesHolbrow/sound-cycles/issues"
   },
-  "homepage": "https://github.com/CharlesHolbrow/sound-cycles#readme"
+  "homepage": "https://github.com/CharlesHolbrow/sound-cycles#readme",
+  "dependencies": {
+    "underscore": "^1.8.3"
+  }
 }

@@ -1,4 +1,5 @@
 'use strict';
+var fs = require('fs');
 
 var rpp = {};
 module.exports = rpp;
@@ -27,18 +28,34 @@ rpp.parseBlock = function(blockText){
   if (blockText[0] !== '<') 
     throw new Error('Text does not begin with "<"');
 
-  var lines = blockText.split(/\n|\r/);
+  var lines = blockText.split(/\r?\n/);
   var result = {parent:null};
   var target = result;
   var position = 0;
 
   while (position < lines.length) {
     let parsedLine = rpp.parseLine(lines[position]);
-    console.log(parsedLine);
-    if (parsedLine[0][0] === '<'){
+
+    if (parsedLine[0] && parsedLine[0][0] === '<'){
+      // we are starting a new group. cut off the opening '<''
       parsedLine[0] = parsedLine[0].slice(1);
+      let name = parsedLine[0];
       let newObject = {parent:target};
-      target[parsedLine[0]] = newObject; // the name of the object
+      // where do we put the object?
+      // check if we already have an array of these
+      if (newObject.parent.hasOwnProperty(name+'s')){
+        newObject.parent[name+'s'].push(newObject)
+      }
+      // check if we need to create a collection
+      else if (newObject.parent.hasOwnProperty(name)){
+        newObject.parent[name+'s'] = [newObject.parent[name], newObject];
+        delete newObject.parent[name];
+      }
+      else {
+        target[name] = newObject; // the name of the object
+      }
+      // Until we reach a '>', put all lines inside the object
+      // we just created.
       target = newObject;
     }
 
@@ -56,12 +73,7 @@ rpp.parseBlock = function(blockText){
   return result;
 };
 
-
-rpp.load = function(filename){
-
-};
-
-
-rpp.parse = function(rppText){
-
+rpp.readFile = function(filename){
+  var data = fs.readFileSync(filename, 'ascii');
+  return rpp.parseBlock(data);
 };
