@@ -95,15 +95,20 @@ rpp.readFile = function(filename){
 
 var Rpp = function(){};
 
-Rpp.prototype.findItemsBySource = function(source){
+Rpp.prototype.findItemsBySource = function(sourceFileName){
   var results = [];
   var tracks = this.TRACK ? [this.TRACK] : this.TRACKs;
   _.each(tracks, (track)=>{
     var items = track.ITEM ? [track.ITEM] : track.ITEMs;
     _.each(items, (item)=>{
-      console.log(item.NAME);
+      if (item.SOURCE && item.SOURCE.FILE &&
+        item.SOURCE.FILE[0] === sourceFileName)
+      {
+        results.push(item);
+      }
     });
   });
+  return results;
 };
 
 Rpp.prototype.findTrack = function(name){
