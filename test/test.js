@@ -40,7 +40,7 @@ var t0 = "BAD START\n\
   ZXZhdxAA\n\
 >";
 
-var t1 = "<RECORD_CFG\n\
+var t1 = "<REAPER_PROJECT\n\
   VALUE\n\
 >";
 
@@ -54,7 +54,7 @@ var t2 = "<REAPER_PROJECT 0.1 '5.04/OSX64' 1445270847\n\
   VALUE\n\
 >";
 
-var multiple = "<PROJ\n\
+var multiple = "<REAPER_PROJECT\n\
   TRACK 1 2 3\n\
   TRACK 4 5 6\n\
   <TRACK\n\
@@ -69,35 +69,35 @@ var multiple = "<PROJ\n\
 >"
 
 
-describe('parseBlock', function(){
+describe('parseProject', function(){
 
-  it('should put duplicates in a lower case version with the same name', ()=>{
-    obj = rpp.parseBlock(multiple);
-    assert.equal(obj.PROJ.TRACKs.length, 3);
+  it('should put duplicate TRACK items into TRACKs', ()=>{
+    var obj = rpp.parseProject(multiple);
+    assert.equal(obj.TRACKs.length, 3);
   });
 
   it('should reject any block that does not start with a "<" char', function(){
     assert.throws(
-      function(){rpp.parseBlock(t0)}, 
+      function(){rpp.parseProject(t0)}, 
       Error,
       'did not throw'
     );
   });
 
   it('should handle a simple object', ()=>{
-    var obj = rpp.parseBlock(t1);
-    assert.equal(typeof obj['RECORD_CFG'], 'object');
-    assert.ok('VALUE' in obj['RECORD_CFG']);
+    var obj = rpp.parseProject(t1);
+    assert.equal(typeof obj, 'object');
+    assert.ok('VALUE' in obj);
   });
 
   it('should handle another obj', ()=>{
-    var obj = rpp.parseBlock(t2);
-    assert.deepEqual(obj.REAPER_PROJECT.okay, [1, 2, 3]);
-    assert.deepEqual(obj.REAPER_PROJECT.OTHER.TWO, [2]);
+    var obj = rpp.parseProject(t2);
+    assert.deepEqual(obj.okay, [1, 2, 3]);
+    assert.deepEqual(obj.OTHER.TWO, [2]);
   });
 
   it('should run on an actual file without crashing', ()=>{
     var data = fs.readFileSync('./test/test.rpp', 'ascii');
-    var parsed = rpp.parseBlock(data);
+    var parsed = rpp.parseProject(data);
   });
 });

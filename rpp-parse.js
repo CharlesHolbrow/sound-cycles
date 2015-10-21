@@ -1,5 +1,6 @@
 'use strict';
 var fs = require('fs');
+var _ = require('underscore');
 
 var rpp = {};
 module.exports = rpp;
@@ -24,11 +25,11 @@ rpp.parseLine = function(lineText){
   return array;
 };
 
-rpp.parseBlock = function(blockText){
-  if (blockText[0] !== '<') 
+rpp.parseProject = function(projectText){
+  if (projectText[0] !== '<') 
     throw new Error('Text does not begin with "<"');
 
-  var lines = blockText.split(/\r?\n/);
+  var lines = projectText.split(/\r?\n/);
   var result = {parent:null};
   var target = result;
   var position = 0;
@@ -40,7 +41,8 @@ rpp.parseBlock = function(blockText){
       // we are starting a new group. cut off the opening '<''
       parsedLine[0] = parsedLine[0].slice(1);
       let name = parsedLine[0];
-      let newObject = {parent:target};
+      let newObject = (name === 'REAPER_PROJECT' ? new Rpp : {});
+      newObject.parent = target;
       // where do we put the object?
       // check if we already have an array of these
       if (newObject.parent.hasOwnProperty(name+'s')){
@@ -70,10 +72,41 @@ rpp.parseBlock = function(blockText){
     position++;
   }
 
-  return result;
+  return result.REAPER_PROJECT;
 };
 
 rpp.readFile = function(filename){
   var data = fs.readFileSync(filename, 'ascii');
-  return rpp.parseBlock(data);
+  return rpp.parseProject(data);
 };
+
+var Rpp = function(){};
+
+Rpp.prototype.findItemsBySource = function(source){
+  var results = [];
+  var tracks = this.TRACK ? [this.TRACK] : this.TRACKs;
+  _.each(tracks, (track)=>{
+    var items = track.ITEM ? [track.ITEM] : track.ITEMs;
+    _.each(items, (item)=>{
+      console.log(item.NAME);
+    });
+  });
+};
+
+Rpp.prototype.findTrack = function(name){
+  var proj = this;
+  if (proj.TRACK && proj.TRACK.NAME === name){
+    return proj.TRACK
+  }
+  if (!proj.TRACKs){
+    return undefined;
+  }
+
+  return _.find(proj.TRACKs, (track)=>{
+    if (track.NAME && track.NAME[0]){
+      return track.NAME[0] === name;
+    }
+  });
+};
+
+
