@@ -7,8 +7,9 @@ module.exports = rpp;
 
 var spaceRegex = /^([^'`"][^ ]*)\s?/;
 var delimiterRegex = /^((['`"])(?:.*?)(?:\2))\s?(.*)/;
-var numberRegex = /^-?(\d+(.\d+)?)$/
-var trimLeadingTrailingWhitespace = /^\s+|\s+$/g
+var numberRegex = /^-?(\d+(.\d+)?)$/;
+var trimLeadingTrailingWhitespace = /^\s+|\s+$/g;
+var trimQuotes = /^(['"`])(.*)\1$/;
 
 rpp.parseLine = function(lineText){
   lineText = lineText.replace(trimLeadingTrailingWhitespace, '');
@@ -20,6 +21,18 @@ rpp.parseLine = function(lineText){
     // part.length +1: (+1 is for the space)
     var lineText = lineText.slice(part.length + 1, lineText.length);
     array.push(numberRegex.test(part) ? parseFloat(part) : part);
+  }
+
+  // quotes from strings '"`
+  for (let i = 0; i < array.length; i++){
+    let text = array[i];
+    if (typeof text !== 'string'){
+      continue;
+    }
+    var match = text.match(trimQuotes);
+    if (match){
+      array[i] = match[2];
+    }
   }
 
   return array;
@@ -41,7 +54,7 @@ rpp.parseProject = function(projectText){
       // we are starting a new group. cut off the opening '<''
       parsedLine[0] = parsedLine[0].slice(1);
       let name = parsedLine[0];
-      let newObject = (name === 'REAPER_PROJECT' ? new Rpp : {});
+      let newObject = (name === 'REAPER_PROJECT' ? new Rpp : {}); // In a future version, all objects should be class instances
       newObject.parent = target;
       // where do we put the object?
       // check if we already have an array of these

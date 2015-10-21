@@ -20,17 +20,17 @@ describe('parseLine', function(){
 
   it('should handle strings in quotes', function(){
     var res = rpp.parseLine('"ok" blah `last`');
-    assert.deepEqual(res, ['"ok"', 'blah', '`last`']);
+    assert.deepEqual(res, ['ok', 'blah', 'last']);
   });
 
   it('should ignore trailing space', function(){
     assert.deepEqual(rpp.parseLine("WORD ok  "), ['WORD', 'ok']);
-    assert.deepEqual(rpp.parseLine("WORD 'ok'  "), ['WORD', "'ok'"]);
+    assert.deepEqual(rpp.parseLine("WORD 'ok'  "), ['WORD', "ok"]);
   });
 
   it('should ignore leading whitespace', ()=>{
     assert.deepEqual(rpp.parseLine("  WORD ok"), ['WORD', 'ok']);
-    assert.deepEqual(rpp.parseLine('  "WORD" ok'), ['"WORD"', 'ok']);
+    assert.deepEqual(rpp.parseLine('  "WORD" ok'), ['WORD', 'ok']);
   });
 
 });
