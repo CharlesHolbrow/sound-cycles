@@ -28,7 +28,7 @@ var Knboz = function(device){
       });
     });
     this.dirty = [[], []];
-  }, 2);
+  }, 5);
 
   // initialize
   _.each(this.encoders, (encoder, n)=>{
@@ -41,8 +41,19 @@ var Knboz = function(device){
     this.encoders[n] = (((prevPos + delta) % 256) + 256) % 256; // positive modulo
     var newPos = this.encoders[n];
 
-    this.add(n, Math.floor(prevPos * 0.25), -15);
-    this.add(n, Math.floor(newPos * 0.25), 15);
+    var prevLed = Math.floor(prevPos * 0.25);
+    var newLed = Math.floor(newPos * 0.25);
+
+    this.add(n, prevLed, -15);
+    this.add(n, newLed, 15);
+
+
+    var moveBy = newLed - prevLed;
+    moveBy = moveBy > 32 ? moveBy - 64 : moveBy;
+    moveBy = moveBy < -32 ? moveBy + 64 : moveBy;
+    if (moveBy)
+      device.emit('move', n, moveBy, prevLed, newLed);
+
   });
 
 };
