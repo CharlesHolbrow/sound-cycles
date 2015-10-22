@@ -21,33 +21,49 @@ var item = jam.TRACKs[1].ITEMs[1];
 var jam0 = jam.findItemsBySource('audio/Warm-up Jam U89 STEREO.wav');
 var jam1 = jam.findItemsBySource('audio/Jam 1 U89 STEREO.wav');
 var jam2 = jam.findItemsBySource('audio/Jam 2 U89 STEREO.wav');
+var matilda = jam.findItemsBySource('audio/Matilda.wav');
 
-var jam0Data = _.map(jam0, (item)=>{
-  return {
-    position: item.POSITION[0],
-    startInSource: item.SOFFS[0],
-    length: item.LENGTH[0]
-  };
-});
 
-jam0Data = _.sortBy(jam0Data, (data)=>{
-  return data.startInSource;
-});
+// Extract only the data what we are interested in, and put it
+// in a tidy array of objects
+var cleanData = function(data){
 
-var jam0DataArrays = _(jam0Data).map((obj, i)=>{
-  return [i, obj.startInSource, obj.position, obj.length];
-});
+  data = _.map(data, (item)=>{
+    return {
+      position: item.POSITION[0],
+      startInSource: item.SOFFS[0],
+      length: item.LENGTH[0]
+    };
+  });
 
+  data = _.sortBy(data, (data)=>{
+    return data.startInSource;
+  });
+  return data;
+}
+
+// we have to send the data to Max via OSC, so we turn it all
+// into arrays with properties in a known order
+var makeArrays = function(data){
+  return _(data).map((obj, i)=>{
+    return [i, obj.startInSource, obj.position, obj.length];
+  });
+}
+
+var jam0DataArrays = makeArrays(cleanData(jam0));
+var matildaDataArrays = makeArrays(cleanData(matilda));
+
+console.log(matildaDataArrays);
 
 ////////////////////////////////////////////////////////////////
 //
-// Ping max viz osc
+// Ping max via osc
 //
 ////////////////////////////////////////////////////////////////
 
 var oscClient = new osc.Client('127.0.0.1', 9899);
-oscClient.send('/load', 'audio/Warm-up Jam U89 STEREO.wav');
-_.each(jam0DataArrays, (dataArray)=>{
+oscClient.send('/load', 'audio/Matilda.wav');
+_.each(matildaDataArrays, (dataArray)=>{
   oscClient.send('/position', dataArray);
 });
 
