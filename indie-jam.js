@@ -30,6 +30,11 @@ monode.on('device', (device)=>{
   if (!device.isArc)
     return;
 
+  device.on('disconnect', ()=>{
+    console.log('close device');
+    device.close();
+  });
+
   // clear all leds
   for (let n = 0; n < device.size; n++){
     device.osc.send(device.prefix + '/ring/all', n, 0);
@@ -83,7 +88,7 @@ monode.on('device', (device)=>{
 
     var crossed = _.intersection(positions, divisions);
     if (crossed.length){
-      knobz.divFlash(n);
+      //
     }
   });
 
