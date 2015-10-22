@@ -21,25 +21,36 @@ var Knboz = function(device){
   setInterval(()=>{
     _.each(this.dirty, (dirtyRing, n)=>{
       _.each(dirtyRing, (pos)=>{
-        this.device.level(n, pos, this.rings[n][pos]);
+        var level = this.rings[n][pos];
+        level = level > 15 ? 15 : level;
+        level = level < 0  ? 0  : level;
+        this.device.level(n, pos, level);
       });
     });
     this.dirty = [[], []];
   }, 2);
 
+  // initialize
+  _.each(this.encoders, (encoder, n)=>{
+    this.add(n, 0, 15)
+  });
 
+  // update led when we turn the encoder
   device.on('enc', (n, delta)=>{
     var prevPos = this.encoders[n];
     this.encoders[n] = (((prevPos + delta) % 256) + 256) % 256; // positive modulo
     var newPos = this.encoders[n];
 
-    this.led(n, Math.floor(prevPos * 0.25), 0);
-    this.led(n, Math.floor(newPos * 0.25), 1);
+    this.add(n, Math.floor(prevPos * 0.25), -15);
+    this.add(n, Math.floor(newPos * 0.25), 15);
   });
 
 };
 
-
+Knboz.prototype.add = function(n, pos, amt){
+  var current = this.rings[n][pos];
+  this.level(n, pos, current + Math.floor(amt));
+}
 
 Knboz.prototype.level = function(n, pos, level){
   if (this.rings[n][pos] === level)
