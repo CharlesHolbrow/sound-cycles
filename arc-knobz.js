@@ -8,37 +8,49 @@ var _ = require('underscore');
 var Knboz = function(device){
   this.device = device;
   this.encoders = [];
-  for (let i = 0; i < device.size; i++){
-    this.encoders[i] = {
-      pos: 0,
-      led: 0
-    }
+  this.rings = [];
+  this.dirty = []; // [[1, 3, 15], []] -- leds 1, 3,, 15 on rings[0] need to be updated
+
+  for (let n = 0; n < device.size; n++){
+    this.encoders[n] = 0; // position of encoder
+    this.rings[n] = new Array(64).fill(0);
+    this.dirty[n] = [];
   }
 
-  // resolve every 20 ms
+  // resolve leds
   setInterval(()=>{
-
-    // clear all rings
-    _.each(this.encoders, (enc, n)=>{
-      device.osc.send(device.prefix + '/ring/all', n, 0);
-    });
-
-    // pause a moment and re-light the leds
-    setTimeout(()=>{
-      _.each(this.encoders, (enc, n)=>{
-        var led = Math.floor(enc.pos * 0.25);
-        device.led(n, led, 1);
+    _.each(this.dirty, (dirtyRing, n)=>{
+      _.each(dirtyRing, (pos)=>{
+        this.device.level(n, pos, this.rings[n][pos]);
       });
-    }, 2);
-  }, 20);
+    });
+    this.dirty = [[], []];
+  }, 2);
 
 
   device.on('enc', (n, delta)=>{
-    var enc = this.encoders[n];
-    // positive modulo
-    enc.pos = (((enc.pos + delta) % 256) + 256) % 256;
+    var prevPos = this.encoders[n];
+    this.encoders[n] = (((prevPos + delta) % 256) + 256) % 256; // positive modulo
+    var newPos = this.encoders[n];
+
+    this.led(n, Math.floor(prevPos * 0.25), 0);
+    this.led(n, Math.floor(newPos * 0.25), 1);
   });
 
+};
+
+
+
+Knboz.prototype.level = function(n, pos, level){
+  if (this.rings[n][pos] === level)
+    return;
+
+  this.rings[n][pos] = level;
+  this.dirty[n].push(pos);
+};
+
+Knboz.prototype.led = function(n, pos, level){
+  this.level(n, pos, level ? 15 : 0);
 };
 
 module.exports = Knboz;
