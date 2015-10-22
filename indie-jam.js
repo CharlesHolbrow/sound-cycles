@@ -24,6 +24,7 @@ var jam2 = jam.findItemsBySource('audio/Jam 2 U89 STEREO.wav');
 
 var jam0Data = _.map(jam0, (item)=>{
   return {
+    position: item.POSITION[0],
     startInSource: item.SOFFS[0],
     length: item.LENGTH[0]
   };
@@ -31,6 +32,10 @@ var jam0Data = _.map(jam0, (item)=>{
 
 jam0Data = _.sortBy(jam0Data, (data)=>{
   return data.startInSource;
+});
+
+var jam0DataArrays = _(jam0Data).map((obj, i)=>{
+  return [i, obj.startInSource, obj.position, obj.length];
 });
 
 
@@ -41,7 +46,11 @@ jam0Data = _.sortBy(jam0Data, (data)=>{
 ////////////////////////////////////////////////////////////////
 
 var oscClient = new osc.Client('127.0.0.1', 9899);
-oscClient.send('/load', 'audio/Jam 1 U89 STEREO.wav');
+oscClient.send('/load', 'audio/Warm-up Jam U89 STEREO.wav');
+_.each(jam0DataArrays, (dataArray)=>{
+  oscClient.send('/position', dataArray);
+});
+
 
 ////////////////////////////////////////////////////////////////
 //
@@ -67,7 +76,7 @@ monode.on('device', (device)=>{
 
   // delimit the regions that we will sample at
   var divisions = [];
-  var divisionCount = 32;
+  var divisionCount = 16;
   for (let i = 0; i < divisionCount; i++){
     let pos = Math.floor(64 / divisionCount * i);
     divisions.push(pos);
@@ -110,7 +119,8 @@ monode.on('device', (device)=>{
 
     var crossed = _.intersection(positions, divisions);
     if (crossed.length){
-      //
+      let amt = delta > 0 ? crossed.length : crossed.length * -1;
+      oscClient.send('/move', amt);
     }
   });
 
