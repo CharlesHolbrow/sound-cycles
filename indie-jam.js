@@ -1,18 +1,26 @@
 'use strict';
 var repl = require('repl');
 
+var osc = require('node-osc');
 var _ = require('underscore');
 var monode = require('monode')();
 
 var rpp = require('./rpp-parse.js');
+
+////////////////////////////////////////////////////////////////
+//
+// Gather all data from our reaper session
+//
+////////////////////////////////////////////////////////////////
+
 var jam = rpp.readFile('./indie-jam.rpp');
 var Knboz = require('./arc-knobz.js');
 
 var item = jam.TRACKs[1].ITEMs[1];
 
-var jam0 = jam.findItemsBySource('Ringside - JamSessionOutputs\\Warm-up Jam U89 STEREO.wav');
-var jam1 = jam.findItemsBySource('Ringside - JamSessionOutputs\\Jam 1 U89 STEREO.wav');
-var jam2 = jam.findItemsBySource('Ringside - JamSessionOutputs\\Jam 2 U89 STEREO.wav');
+var jam0 = jam.findItemsBySource('audio/Warm-up Jam U89 STEREO.wav');
+var jam1 = jam.findItemsBySource('audio/Jam 1 U89 STEREO.wav');
+var jam2 = jam.findItemsBySource('audio/Jam 2 U89 STEREO.wav');
 
 var jam0Data = _.map(jam0, (item)=>{
   return {
@@ -26,6 +34,20 @@ jam0Data = _.sortBy(jam0Data, (data)=>{
 });
 
 
+////////////////////////////////////////////////////////////////
+//
+// Ping max viz osc
+//
+////////////////////////////////////////////////////////////////
+
+var oscClient = new osc.Client('127.0.0.1', 9899);
+oscClient.send('/load', 'audio/Jam 1 U89 STEREO.wav');
+
+////////////////////////////////////////////////////////////////
+//
+// Arc setup
+//
+////////////////////////////////////////////////////////////////
 monode.on('device', (device)=>{
   if (!device.isArc)
     return;

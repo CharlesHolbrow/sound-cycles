@@ -18,6 +18,7 @@
   "homepage": "https://github.com/CharlesHolbrow/sound-cycles#readme",
   "dependencies": {
     "monode": "^2.2.3",
+    "node-osc": "^1.1.0",
     "underscore": "^1.8.3"
   }
 }
