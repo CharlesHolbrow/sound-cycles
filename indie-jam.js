@@ -22,6 +22,7 @@ var jam0 = jam.findItemsBySource('audio/Warm-up Jam U89 STEREO.wav');
 var jam1 = jam.findItemsBySource('audio/Jam 1 U89 STEREO.wav');
 var jam2 = jam.findItemsBySource('audio/Jam 2 U89 STEREO.wav');
 var matilda = jam.findItemsBySource('audio/Matilda.wav');
+var ml30 = jam.findItemsBySource('audio/ML30All.wav');
 
 
 // Extract only the data what we are interested in, and put it
@@ -52,8 +53,9 @@ var makeArrays = function(data){
 
 var jam0DataArrays = makeArrays(cleanData(jam0));
 var matildaDataArrays = makeArrays(cleanData(matilda));
+var ml30DataArrays = makeArrays(cleanData(ml30));
 
-console.log(matildaDataArrays);
+console.log(ml30DataArrays);
 
 ////////////////////////////////////////////////////////////////
 //
@@ -62,8 +64,9 @@ console.log(matildaDataArrays);
 ////////////////////////////////////////////////////////////////
 
 var oscClient = new osc.Client('127.0.0.1', 9899);
-oscClient.send('/load', 'audio/Matilda.wav');
-_.each(matildaDataArrays, (dataArray)=>{
+// oscClient.send('/load', 'audio/Matilda.wav');
+oscClient.send('/load', 'audio/ML30All.wav');
+_.each(ml30DataArrays, (dataArray)=>{
   oscClient.send('/position', dataArray);
 });
 
