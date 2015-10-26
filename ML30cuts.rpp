@@ -1,4 +1,4 @@
-<REAPER_PROJECT 0.1 "5.04/OSX64" 1445887597
+<REAPER_PROJECT 0.1 "5.04/OSX64" 1445889171
   RIPPLE 1
   GROUPOVERRIDE 0 0 0
   AUTOXFADE 1
@@ -1201,7 +1201,7 @@
     BUSCOMP 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 -1 -1 -1
     FREEMODE 0
-    SEL 1
+    SEL 0
     REC 0 0 0 0 0 0 0
     VU 2
     TRACKHEIGHT 0 0
@@ -2079,7 +2079,7 @@
       FADEIN 1 0 0 1 0 0
       FADEOUT 1 0 0 1 0 0
       MUTE 0
-      SEL 1
+      SEL 0
       IGUID {483E6BDA-CA1A-D744-85FA-9E034CC7974B}
       IID 2245
       NAME "NoiseCrazy - stem"
@@ -2105,7 +2105,7 @@
     BUSCOMP 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 -1 -1 -1
     FREEMODE 0
-    SEL 0
+    SEL 1
     REC 0 0 0 0 0 0 0
     VU 2
     TRACKHEIGHT 0 0
@@ -2135,7 +2135,7 @@
       CHANMODE 0
       GUID {080757D3-715C-FE44-8AF4-88C6F24ECE2D}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2157,7 +2157,7 @@
       CHANMODE 0
       GUID {E6EE7AC6-BA8E-A642-9856-3278C9C38110}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2179,7 +2179,7 @@
       CHANMODE 0
       GUID {2D20E1F8-BEB0-154F-ADFC-DA30EC432AAB}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2201,7 +2201,7 @@
       CHANMODE 0
       GUID {84267E7B-411C-384B-931D-ACB8A902A124}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2223,7 +2223,7 @@
       CHANMODE 0
       GUID {451C6488-F5A0-8340-809D-89E46067E8D3}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2245,7 +2245,7 @@
       CHANMODE 0
       GUID {84C7286E-3129-204A-8F56-B432AFDAECFF}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2257,7 +2257,7 @@
       FADEIN 1 0 0 1 0 0
       FADEOUT 1 0 0 1 0 0
       MUTE 0
-      SEL 0
+      SEL 1
       IGUID {892EA51D-BD2C-4A4C-9FEF-54540C82FFE6}
       IID 2209
       NAME transient
@@ -2267,7 +2267,7 @@
       CHANMODE 0
       GUID {3C06D02D-D5B7-CA41-B11B-0755652A1113}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2289,7 +2289,7 @@
       CHANMODE 0
       GUID {333FFDFD-5567-DF43-BF52-7F7DEAD75E01}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2311,7 +2311,7 @@
       CHANMODE 0
       GUID {BC17C2AF-64C2-6049-B94E-2E3E39D36C6A}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2333,7 +2333,7 @@
       CHANMODE 0
       GUID {08AB252D-B6C1-9442-AC9D-6494D156D0A4}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2355,7 +2355,7 @@
       CHANMODE 0
       GUID {F1B8ACCE-C5DB-2B4D-87D6-78605F46D223}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2377,7 +2377,7 @@
       CHANMODE 0
       GUID {A7A6AEC3-6C5F-6E4A-91DB-DDB2124FFF77}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2399,7 +2399,7 @@
       CHANMODE 0
       GUID {43DDF8C3-0C18-F041-BB81-062F64B28412}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2421,7 +2421,7 @@
       CHANMODE 0
       GUID {C677DB4A-3E1E-604D-96B8-7C77F9EB7F3B}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2443,7 +2443,7 @@
       CHANMODE 0
       GUID {8F5D7EEE-7AD7-2643-8C79-C266185CC732}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2465,7 +2465,7 @@
       CHANMODE 0
       GUID {64BA1EDC-EC33-5C45-BE2A-F8EA58A5C09D}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2487,7 +2487,7 @@
       CHANMODE 0
       GUID {E5CDF14B-6032-1D4A-8311-8601DD224B0F}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2509,7 +2509,7 @@
       CHANMODE 0
       GUID {473CE768-FCC6-A940-BF1A-477351F9E019}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2531,7 +2531,7 @@
       CHANMODE 0
       GUID {29C864BC-7A61-4C47-ADFA-9E66E34E48A9}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2553,7 +2553,7 @@
       CHANMODE 0
       GUID {E83FFF3E-94C8-5845-B824-912849008C0C}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2575,7 +2575,7 @@
       CHANMODE 0
       GUID {B95B3BB7-EC61-8642-9690-0DB68F672F5A}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2597,7 +2597,7 @@
       CHANMODE 0
       GUID {096E937F-DC62-8647-8BCD-7FFFFBA6ABB3}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2619,7 +2619,7 @@
       CHANMODE 0
       GUID {7B63BF0F-D9D3-2C4B-954C-4A72A3A20DDF}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2641,7 +2641,7 @@
       CHANMODE 0
       GUID {47EF7F8A-3446-914D-B7BB-27F3B5DEB2EE}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2663,7 +2663,7 @@
       CHANMODE 0
       GUID {DB01DD66-EB17-D944-9B66-70CD3EDDB970}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2685,7 +2685,7 @@
       CHANMODE 0
       GUID {9E202860-0E1B-A740-8DBA-5931792325A6}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2707,7 +2707,7 @@
       CHANMODE 0
       GUID {4C710610-1EAF-5845-9561-CFE99DC06412}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2729,7 +2729,7 @@
       CHANMODE 0
       GUID {6B376766-40F6-BC4F-B987-01CE094C24D3}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2751,7 +2751,7 @@
       CHANMODE 0
       GUID {5F1196B5-A2E8-9C49-BF42-DDAB2930C5B0}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2773,7 +2773,7 @@
       CHANMODE 0
       GUID {8F3E29A1-2164-884B-AA72-A8AC67D004C0}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2795,7 +2795,7 @@
       CHANMODE 0
       GUID {64676A53-1354-EE46-83FE-64B202D9AC20}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2817,7 +2817,7 @@
       CHANMODE 0
       GUID {40AD13F7-8438-8D4F-82DA-58579B7B592C}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2839,7 +2839,7 @@
       CHANMODE 0
       GUID {3864A3C6-9A0F-9D4C-8A64-10924307340D}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2861,7 +2861,7 @@
       CHANMODE 0
       GUID {2F95072A-24CA-3F49-9A82-4AA6C6A04F56}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2883,7 +2883,7 @@
       CHANMODE 0
       GUID {83B349F2-6047-004F-B358-0D53E631022C}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2905,7 +2905,7 @@
       CHANMODE 0
       GUID {D75383FB-193A-8B48-9524-6859847EBFE3}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2927,7 +2927,7 @@
       CHANMODE 0
       GUID {2A55ECBF-3005-7443-B036-109395DA4C37}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2949,7 +2949,7 @@
       CHANMODE 0
       GUID {82FCB88B-5917-8342-ABEE-37A6A04615D2}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2971,7 +2971,7 @@
       CHANMODE 0
       GUID {6C79C923-64CB-8247-AAFB-BACD533F7809}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -2993,7 +2993,7 @@
       CHANMODE 0
       GUID {A38E7165-0D51-E640-96D6-D8713F41F448}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3015,7 +3015,7 @@
       CHANMODE 0
       GUID {C91E1C74-43A0-C043-9E7D-AA70C5C06D91}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3037,7 +3037,7 @@
       CHANMODE 0
       GUID {0021F19C-41CE-1249-A14E-D2EC0D7C086F}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3059,7 +3059,7 @@
       CHANMODE 0
       GUID {7D31E153-E128-764B-A3C3-95716CE5F41C}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3081,7 +3081,7 @@
       CHANMODE 0
       GUID {E92A6455-D862-9C40-ABE0-F14F1D311E0F}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3103,7 +3103,7 @@
       CHANMODE 0
       GUID {AD068E4E-380D-794F-8CA5-2C9B9228663D}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3125,7 +3125,7 @@
       CHANMODE 0
       GUID {E6FF13F1-1D46-F843-9308-399BB6B8F4A2}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3147,7 +3147,7 @@
       CHANMODE 0
       GUID {C8F37EC0-D138-6D47-A1D0-BA719AECE7DF}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3169,7 +3169,7 @@
       CHANMODE 0
       GUID {C40EFE40-3192-1C42-A0C1-6DC821F99F1F}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3191,7 +3191,7 @@
       CHANMODE 0
       GUID {53C1124C-E954-324E-AC98-81EC71DCC3D9}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3213,7 +3213,7 @@
       CHANMODE 0
       GUID {85DCE131-53D6-044F-9B0C-166625BF0DAF}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3235,7 +3235,7 @@
       CHANMODE 0
       GUID {7E8B57FF-6CB3-264D-A5EE-C93092921956}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3257,7 +3257,7 @@
       CHANMODE 0
       GUID {1C1F4FE3-603B-6F46-B701-44B94A8282F7}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3279,7 +3279,7 @@
       CHANMODE 0
       GUID {D12CE0F6-931C-6E44-898B-A2265D391720}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3301,7 +3301,7 @@
       CHANMODE 0
       GUID {E669DCBD-EB6D-7341-9E62-CF5A77FA09FF}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3323,7 +3323,7 @@
       CHANMODE 0
       GUID {BE9F54B5-B76C-7F48-8574-553ACC714863}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3345,7 +3345,7 @@
       CHANMODE 0
       GUID {6EB9A88A-7CD4-084D-9474-95C6822F96A9}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3367,7 +3367,7 @@
       CHANMODE 0
       GUID {022001F0-828F-784A-BE9C-8BF2CBBC8144}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3389,7 +3389,7 @@
       CHANMODE 0
       GUID {95604089-F560-C44E-9F57-9EA85F3B94C0}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3411,7 +3411,7 @@
       CHANMODE 0
       GUID {DA487F47-7F47-A94E-A7DE-24E1A7A08CEC}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3433,7 +3433,7 @@
       CHANMODE 0
       GUID {0CFEBC1A-297C-EF4D-9906-9B187D31F776}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3455,7 +3455,7 @@
       CHANMODE 0
       GUID {7AAB1071-0B22-0143-A71C-45D9796BA58E}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3477,7 +3477,7 @@
       CHANMODE 0
       GUID {8951AD06-A09E-2847-99E4-7625BC5C9FB3}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3499,7 +3499,7 @@
       CHANMODE 0
       GUID {79A2C3C5-24F2-B34C-91DC-F9D8B756B2B7}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3521,7 +3521,7 @@
       CHANMODE 0
       GUID {AA8320F7-4219-EC4A-85C6-B56599A38371}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3543,7 +3543,7 @@
       CHANMODE 0
       GUID {C5A0AABD-6368-C44A-B600-490BF11B9E95}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3565,7 +3565,7 @@
       CHANMODE 0
       GUID {BE3C089C-C8A6-9749-BB8B-A79B9796FEF9}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3587,7 +3587,7 @@
       CHANMODE 0
       GUID {927D2A0C-E42F-FD4C-AB43-6C4260212971}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3609,7 +3609,7 @@
       CHANMODE 0
       GUID {C8B05491-7030-5F42-9E9F-7214D2EDA682}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3631,7 +3631,7 @@
       CHANMODE 0
       GUID {F2AC41A9-E08B-7441-B82B-963EE7499415}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3653,7 +3653,7 @@
       CHANMODE 0
       GUID {859E5DDD-5388-064F-9FE8-84E1BEBBDAAB}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3675,7 +3675,7 @@
       CHANMODE 0
       GUID {D94BE265-1835-7144-A0B0-6B37FE376E7A}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3697,7 +3697,7 @@
       CHANMODE 0
       GUID {6001C23A-6174-7144-839D-68D10F5DB18E}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3719,7 +3719,7 @@
       CHANMODE 0
       GUID {47ECA5AA-BECA-7347-B952-415E319728BD}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3741,7 +3741,7 @@
       CHANMODE 0
       GUID {5062EFB1-9924-674A-A5E5-18E659C03EF2}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3763,7 +3763,7 @@
       CHANMODE 0
       GUID {02EFBF8B-6553-9D4E-BC6E-8CCB2008476C}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3785,7 +3785,7 @@
       CHANMODE 0
       GUID {29E07143-21C2-AB44-9EE1-D58D82B88AA4}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3807,7 +3807,7 @@
       CHANMODE 0
       GUID {1C782BC5-2E26-8B4D-8B37-E24621495C96}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3829,7 +3829,7 @@
       CHANMODE 0
       GUID {8DA82AEB-CC7C-4A4A-8967-B0CF3A6F6215}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3851,7 +3851,7 @@
       CHANMODE 0
       GUID {B94EDA51-CB54-3A49-8C91-27F5FDDA7026}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
     <ITEM
@@ -3873,7 +3873,7 @@
       CHANMODE 0
       GUID {8898F333-C2B9-5746-A45B-77146991A3DD}
       <SOURCE WAVE
-        FILE "Media/ML30cuts_stems_Transient-005.wav"
+        FILE "Media/transient.wav"
       >
     >
   >

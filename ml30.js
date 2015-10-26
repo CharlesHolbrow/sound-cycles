@@ -4,6 +4,7 @@ var repl = require('repl');
 var osc = require('node-osc');
 var _ = require('underscore');
 var monode = require('monode')();
+var PowerMate = require('node-powermate');
 
 var rpp = require('./rpp-parse.js');
 var Knboz = require('./arc-knobz.js');
@@ -25,7 +26,14 @@ var jam = rpp.readFile('./indie-jam.rpp');
 
 
 var ml30rpp = rpp.readFile('./ML30cuts.rpp');
-var ml30Soft = ml30rpp.findItemsBySource('Media/soft.wav');
+var ml30SoftFilename = 'Media/soft.wav';
+var ml30Soft = ml30rpp.findItemsBySource(ml30SoftFilename);
+
+var ml30TransientFilename = 'Media/transient.wav';
+var ml30Transient = ml30rpp.findItemsBySource(ml30TransientFilename);
+
+var ml30CrazyFilename = 'Media/crazy.wav';
+var ml30Crazy = ml30rpp.findItemsBySource(ml30CrazyFilename);
 
 
 // Extract only the data what we are interested in, and put it
@@ -57,9 +65,17 @@ var makeArrays = function(data){
 // var jam0DataArrays = makeArrays(cleanData(jam0));
 // var matildaDataArrays = makeArrays(cleanData(matilda));
 // var ml30DataArrays = makeArrays(cleanData(ml30));
-var ml30Soft = makeArrays(cleanData(ml30Soft));
+var ml30SoftDataArrays = makeArrays(cleanData(ml30Soft));
+//ml30SoftDataArrays.push([ml30SoftDataArrays.length, 5000, 5000, 10]);
 
-console.log(ml30Soft);
+var ml30TransientDataArrays = makeArrays(cleanData(ml30Transient));
+//ml30TransientDataArrays.push([ml30TransientDataArrays.length, 5000, 5000, 10]);
+
+var ml30CrazyDataArrays = makeArrays(cleanData(ml30Crazy));
+//ml30CrazyDataArrays.push([ml30CrazyDataArrays.length, 5000, 5000, 10]);
+
+
+console.log(ml30TransientDataArrays);
 
 ////////////////////////////////////////////////////////////////
 //
@@ -68,12 +84,16 @@ console.log(ml30Soft);
 ////////////////////////////////////////////////////////////////
 
 var oscClient = new osc.Client('127.0.0.1', 9899);
-// oscClient.send('/load', 'audio/Matilda.wav');
-oscClient.send('/load', '');
-_.each(ml30DataArrays, (dataArray)=>{
-  oscClient.send('/position', dataArray);
+_.each(ml30SoftDataArrays, (dataArray)=>{
+  oscClient.send('/k1/position', dataArray);
 });
 
+_.each(ml30TransientDataArrays, (dataArray)=>{
+  oscClient.send('/k3/position', dataArray);
+});
+_.each(ml30CrazyDataArrays, (dataArray)=>{
+  oscClient.send('/k5/position', dataArray);
+});
 
 ////////////////////////////////////////////////////////////////
 //
@@ -141,12 +161,16 @@ monode.on('device', (device)=>{
     } while (check !== end);
 
     var crossed = _.intersection(positions, divisions);
+    var oscAddr = n === 1 ? '/k1/move' : '/k2/move';
     if (crossed.length){
       let amt = delta > 0 ? crossed.length : crossed.length * -1;
-      oscClient.send('/move', amt);
+      oscClient.send(oscAddr, amt);
     }
   });
 
 });
 
-// repl.start({useGlobal:true});
+try {
+  var pms = [new PowerMate(0), new PowerMate(1)];
+
+}

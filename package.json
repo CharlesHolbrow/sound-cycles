@@ -19,6 +19,7 @@
   "dependencies": {
     "monode": "^2.2.3",
     "node-osc": "^1.1.0",
+    "node-powermate": "git+https://github.com/CharlesHolbrow/node-powermate.git",
     "underscore": "^1.8.3"
   }
 }
