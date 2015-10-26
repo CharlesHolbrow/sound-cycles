@@ -172,5 +172,13 @@ monode.on('device', (device)=>{
 
 try {
   var pms = [new PowerMate(0), new PowerMate(1)];
+  _.each(pms, function(pm, i){
+    pm.on('wheelTurn', (delta)=>{
+      var oscAddr = '/k' + (i + 3) + '/move';
+      oscClient.send(oscAddr, delta);
+    });
+  });
 
+} catch(error){
+  console.log(error);
 }
