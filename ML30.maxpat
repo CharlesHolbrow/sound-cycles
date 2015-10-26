@@ -303,7 +303,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 573.0, 55.0, 281.0, 18.0 ],
-					"text" : "/k1/move -1"
+					"text" : "/k3/move -1"
 				}
 
 			}
