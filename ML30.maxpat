@@ -303,7 +303,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 573.0, 55.0, 281.0, 18.0 ],
-					"text" : "/k3/move -1"
+					"text" : "/k2/move 1"
 				}
 
 			}
@@ -388,7 +388,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 164.5, 309.0, 105.0, 18.0 ],
-					"text" : "1857data"
+					"text" : "1908data"
 				}
 
 			}
@@ -504,7 +504,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 495.5, 287.0, 105.0, 18.0 ],
-					"text" : "1860data"
+					"text" : "1911data"
 				}
 
 			}
@@ -672,7 +672,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 749.0, 276.0, 105.0, 18.0 ],
-					"text" : "1863data"
+					"text" : "1914data"
 				}
 
 			}
